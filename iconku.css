@@ -10,13 +10,13 @@
 */
 @font-face {
   font-family: 'remixicon';
-  src: url('https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.eot?t=1769685282643'); /* IE9 */
+  src: url('https://cdn.jsdelivr.net/gh/Goomsite/goomsite.github.io@refs/heads/master/remixicon.eot?t=1769685282643'); /* IE9 */
   src:
-    url('https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.eot?t=1769685282643#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.woff2?t=1769685282643') format('woff2'),
-    url('https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.woff?t=1769685282643') format('woff'),
-    url('https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.ttf?t=1769685282643') format('truetype'), /* Chrome, Firefox, Opera, Safari, Android, iOS 4.2+ */
-    url('https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.svg?t=1769685282643#remixicon') format('svg'); /* iOS 4.1- */
+    url('https://cdn.jsdelivr.net/gh/Goomsite/goomsite.github.io@refs/heads/master/remixicon.eot?t=1769685282643#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('https://cdn.jsdelivr.net/gh/Goomsite/goomsite.github.io@refs/heads/master/remixicon.woff2?t=1769685282643') format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/Goomsite/goomsite.github.io@refs/heads/master/remixicon.woff?t=1769685282643') format('woff'),
+    url('https://raw.githubusercontent.com/Goomsite/goomsite.github.io/refs/heads/master/remixicon.ttf?t=1769685282643') format('truetype'), /* Chrome, Firefox, Opera, Safari, Android, iOS 4.2+ */
+    url('https://cdn.jsdelivr.net/gh/Goomsite/goomsite.github.io@b6c52e27082d0bf8e52cc8a0664392b63c8e6011/remixicon.svg?t=1769685282643#remixicon') format('svg'); /* iOS 4.1- */
   font-display: swap;
   font-style: normal;
 }
