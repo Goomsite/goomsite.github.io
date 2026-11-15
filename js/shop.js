@@ -82,3 +82,176 @@ function start(){scan(doc);if(window.MutationObserver&&doc.body){var queued=fals
 !function(){"use strict";var root=document.documentElement,key="gsc_theme";function getTheme(){try{var saved=localStorage.getItem(key);if(saved==="dark"||saved==="light")return saved}catch(e){}return window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function applyTheme(theme,save){var dark=theme==="dark";root.setAttribute("data-theme",dark?"dark":"light");root.classList.toggle("dark-mode",dark);root.classList.toggle("light-mode",!dark);document.querySelectorAll("#darkmode-toggle,[data-darkmode-toggle]").forEach(function(btn){var moon=btn.querySelector(".moon-icon"),sun=btn.querySelector(".sun-icon");btn.setAttribute("aria-pressed",String(dark));btn.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");if(moon)moon.style.display=dark?"none":"";if(sun)sun.style.display=dark?"":"none"});if(save){try{localStorage.setItem(key,dark?"dark":"light")}catch(e){}}}applyTheme(getTheme(),false);document.addEventListener("click",function(e){var btn=e.target.closest("#darkmode-toggle,[data-darkmode-toggle]");if(!btn)return;e.preventDefault();applyTheme(root.getAttribute("data-theme")==="dark"?"light":"dark",true)})}();
 
 !function(){"use strict";var t=document.querySelectorAll(".gsc-modal");function e(t){t&&(t.classList.remove("is-active"),t.setAttribute("aria-hidden","true"))}document.addEventListener("click",function(t){var s=t.target.closest(".gsc-modal-toggle");if(s){var a=s.getAttribute("data-modal"),c=document.getElementById(a);c&&(c.classList.add("is-active"),c.setAttribute("aria-hidden","false"));return}var r=t.target.closest(".gsc-modal-close");if(r){e(r.closest(".gsc-modal"));return}t.target.classList.contains("gsc-modal-overlay")&&e(t.target.closest(".gsc-modal"))}),document.addEventListener("keydown",function(s){"Escape"===s.key&&t.forEach(e)})}();
+
+/* SP NEWS LANGUAGE */
+!function(){"use strict";
+var languages={
+id:{
+"Cari artikel...":"Cari artikel...",
+"Cari artikel":"Cari artikel",
+"Artikel Lainnya":"Artikel Lainnya",
+"Mohon tunggu...":"Mohon tunggu...",
+"Coba Lagi":"Coba Lagi",
+"Artikel tidak ditemukan":"Artikel tidak ditemukan",
+"Belum ada artikel biasa yang cocok dengan pencarian.":"Belum ada artikel biasa yang cocok dengan pencarian.",
+"Belum ada artikel":"Belum ada artikel",
+"Belum ada artikel biasa yang tersedia.":"Belum ada artikel biasa yang tersedia.",
+"Gagal memuat artikel":"Gagal memuat artikel",
+"Silakan coba pencarian kembali.":"Silakan coba pencarian kembali.",
+"Silakan muat ulang halaman beberapa saat lagi.":"Silakan muat ulang halaman beberapa saat lagi.",
+"✓ Semua artikel sudah ditampilkan":"✓ Semua artikel sudah ditampilkan",
+"Tanpa judul":"Tanpa judul"
+},
+en:{
+"Cari artikel...":"Search articles...",
+"Cari artikel":"Search articles",
+"Artikel Lainnya":"Load More",
+"Mohon tunggu...":"Please wait...",
+"Coba Lagi":"Try Again",
+"Artikel tidak ditemukan":"No articles found",
+"Belum ada artikel biasa yang cocok dengan pencarian.":"No regular articles match your search.",
+"Belum ada artikel":"No articles yet",
+"Belum ada artikel biasa yang tersedia.":"There are no regular articles available yet.",
+"Gagal memuat artikel":"Failed to load articles",
+"Silakan coba pencarian kembali.":"Please try your search again.",
+"Silakan muat ulang halaman beberapa saat lagi.":"Please reload the page in a moment.",
+"✓ Semua artikel sudah ditampilkan":"✓ All articles have been displayed",
+"Tanpa judul":"Untitled"
+},
+ar:{
+"Cari artikel...":"ابحث عن المقالات...",
+"Cari artikel":"بحث المقالات",
+"Artikel Lainnya":"المزيد من المقالات",
+"Mohon tunggu...":"يرجى الانتظار...",
+"Coba Lagi":"حاول مرة أخرى",
+"Artikel tidak ditemukan":"لم يتم العثور على مقالات",
+"Belum ada artikel biasa yang cocok dengan pencarian.":"لا توجد مقالات مطابقة لبحثك.",
+"Belum ada artikel":"لا توجد مقالات بعد",
+"Belum ada artikel biasa yang tersedia.":"لا توجد مقالات متاحة حاليًا.",
+"Gagal memuat artikel":"فشل تحميل المقالات",
+"Silakan coba pencarian kembali.":"يرجى المحاولة مرة أخرى.",
+"Silakan muat ulang halaman beberapa saat lagi.":"يرجى إعادة تحميل الصفحة لاحقًا.",
+"✓ Semua artikel sudah ditampilkan":"✓ تم عرض جميع المقالات",
+"Tanpa judul":"بدون عنوان"
+},
+es:{
+"Cari artikel...":"Buscar artículos...",
+"Cari artikel":"Buscar artículos",
+"Artikel Lainnya":"Más artículos",
+"Mohon tunggu...":"Por favor espera...",
+"Coba Lagi":"Intentar de nuevo",
+"Artikel tidak ditemukan":"No se encontraron artículos",
+"Belum ada artikel biasa yang cocok dengan pencarian.":"No hay artículos que coincidan con tu búsqueda.",
+"Belum ada artikel":"Aún no hay artículos",
+"Belum ada artikel biasa yang tersedia.":"No hay artículos disponibles.",
+"Gagal memuat artikel":"Error al cargar artículos",
+"Silakan coba pencarian kembali.":"Intenta buscar de nuevo.",
+"Silakan muat ulang halaman beberapa saat lagi.":"Vuelve a cargar la página más tarde.",
+"✓ Semua artikel sudah ditampilkan":"✓ Todos los artículos han sido mostrados",
+"Tanpa judul":"Sin título"
+},
+fr:{
+"Cari artikel...":"Rechercher des articles...",
+"Cari artikel":"Rechercher des articles",
+"Artikel Lainnya":"Plus d'articles",
+"Mohon tunggu...":"Veuillez patienter...",
+"Coba Lagi":"Réessayer",
+"Artikel tidak ditemukan":"Aucun article trouvé",
+"Belum ada artikel biasa yang cocok dengan pencarian.":"Aucun article ne correspond à votre recherche.",
+"Belum ada artikel":"Aucun article pour le moment",
+"Belum ada artikel biasa yang tersedia.":"Aucun article disponible.",
+"Gagal memuat artikel":"Échec du chargement des articles",
+"Silakan coba pencarian kembali.":"Veuillez réessayer votre recherche.",
+"Silakan muat ulang halaman beberapa saat lagi.":"Veuillez recharger la page plus tard.",
+"✓ Semua artikel sudah ditampilkan":"✓ Tous les articles ont été affichés",
+"Tanpa judul":"Sans titre"
+},
+de:{
+"Cari artikel...":"Artikel suchen...",
+"Cari artikel":"Artikel suchen",
+"Artikel Lainnya":"Weitere Artikel",
+"Mohon tunggu...":"Bitte warten...",
+"Coba Lagi":"Erneut versuchen",
+"Artikel tidak ditemukan":"Keine Artikel gefunden",
+"Belum ada artikel biasa yang cocok dengan pencarian.":"Keine passenden Artikel gefunden.",
+"Belum ada artikel":"Noch keine Artikel",
+"Belum ada artikel biasa yang tersedia.":"Derzeit sind keine Artikel verfügbar.",
+"Gagal memuat artikel":"Artikel konnten nicht geladen werden",
+"Silakan coba pencarian kembali.":"Bitte versuchen Sie es erneut.",
+"Silakan muat ulang halaman beberapa saat lagi.":"Bitte laden Sie die Seite später neu.",
+"✓ Semua artikel sudah ditampilkan":"✓ Alle Artikel wurden angezeigt",
+"Tanpa judul":"Ohne Titel"
+},
+pt:{
+"Cari artikel...":"Pesquisar artigos...",
+"Cari artikel":"Pesquisar artigos",
+"Artikel Lainnya":"Mais artigos",
+"Mohon tunggu...":"Aguarde...",
+"Coba Lagi":"Tentar novamente",
+"Artikel tidak ditemukan":"Nenhum artigo encontrado",
+"Belum ada artikel biasa yang cocok dengan pencarian.":"Nenhum artigo corresponde à sua pesquisa.",
+"Belum ada artikel":"Ainda não há artigos",
+"Belum ada artikel biasa yang tersedia.":"Não há artigos disponíveis.",
+"Gagal memuat artikel":"Falha ao carregar artigos",
+"Silakan coba pencarian kembali.":"Tente pesquisar novamente.",
+"Silakan muat ulang halaman beberapa saat lagi.":"Recarregue a página mais tarde.",
+"✓ Semua artikel sudah ditampilkan":"✓ Todos os artigos foram exibidos",
+"Tanpa judul":"Sem título"
+},
+ja:{
+"Cari artikel...":"記事を検索...",
+"Cari artikel":"記事を検索",
+"Artikel Lainnya":"もっと記事を見る",
+"Mohon tunggu...":"お待ちください...",
+"Coba Lagi":"再試行",
+"Artikel tidak ditemukan":"記事が見つかりません",
+"Belum ada artikel biasa yang cocok dengan pencarian.":"検索に一致する記事はありません。",
+"Belum ada artikel":"記事はまだありません",
+"Belum ada artikel biasa yang tersedia。":"現在、記事はありません。",
+"Gagal memuat artikel":"記事の読み込みに失敗しました",
+"Silakan coba pencarian kembali.":"もう一度検索してください。",
+"Silakan muat ulang halaman beberapa saat lagi.":"しばらくしてからページを再読み込みしてください。",
+"✓ Semua artikel sudah ditampilkan":"✓ すべての記事を表示しました",
+"Tanpa judul":"無題"
+},
+zh:{
+"Cari artikel...":"搜索文章...",
+"Cari artikel":"搜索文章",
+"Artikel Lainnya":"更多文章",
+"Mohon tunggu...":"请稍候...",
+"Coba Lagi":"重试",
+"Artikel tidak ditemukan":"未找到文章",
+"Belum ada artikel biasa yang cocok dengan pencarian.":"没有符合搜索条件的文章。",
+"Belum ada artikel":"暂无文章",
+"Belum ada artikel biasa yang tersedia.":"目前没有可用文章。",
+"Gagal memuat artikel":"文章加载失败",
+"Silakan coba pencarian kembali.":"请重新尝试搜索。",
+"Silakan muat ulang halaman beberapa saat lagi.":"请稍后重新加载页面。",
+"✓ Semua artikel sudah ditampilkan":"✓ 所有文章已显示",
+"Tanpa judul":"无标题"
+},
+ru:{
+"Cari artikel...":"Поиск статей...",
+"Cari artikel":"Поиск статей",
+"Artikel Lainnya":"Больше статей",
+"Mohon tunggu...":"Пожалуйста, подождите...",
+"Coba Lagi":"Повторить",
+"Artikel tidak ditemukan":"Статьи не найдены",
+"Belum ada artikel biasa yang cocok dengan pencarian.":"По вашему запросу ничего не найдено.",
+"Belum ada artikel":"Статей пока нет",
+"Belum ada artikel biasa yang tersedia.":"Нет доступных статей.",
+"Gagal memuat artikel":"Не удалось загрузить статьи",
+"Silakan coba pencarian kembali.":"Попробуйте выполнить поиск снова.",
+"Silakan muat ulang halaman beberapa saat lagi.":"Пожалуйста, перезагрузите страницу позже.",
+"✓ Semua artikel sudah ditampilkan":"✓ Все статьи показаны",
+"Tanpa judul":"Без названия"
+}
+};
+window.SP_NEWS_TRANSLATE=function(key,fallback){
+var lang=String(typeof window.GSC_getLanguage==="function"?window.GSC_getLanguage():window.GSC_LANGUAGE||document.documentElement.lang||"id").toLowerCase().split(/[-_]/)[0];
+return languages[lang]&&languages[lang][key]||fallback||key;
+};
+}();
+
+/*Chat WA live*/
+(function(){'use strict';var root=document.getElementById('mwShop');if(!root)return;if(!showFloat){root.remove();var demo=document.getElementById('gsc-modal-demo');if(demo)demo.remove();return}if(root.getAttribute('data-mw-ready')==='1')return;var MW_CONFIG=window.MW_CONFIG;if(!MW_CONFIG||!MW_CONFIG.text)return;root.setAttribute('data-mw-ready','1');var MW_TEXT=MW_CONFIG.text;var CONFIG={enabled:true,storeName:MW_TEXT.header.title,primaryColor:'#16a34a',position:'right',darkMode:'light',autoRouting:true,greeting:MW_TEXT.chat.greeting,quickReplies:MW_TEXT.chat.quickReplies||[],categories:Array.isArray(MW_CONFIG.categories)?MW_CONFIG.categories:[],contacts:Array.isArray(MW_CONFIG.contacts)?MW_CONFIG.contacts:[]};var $=function(id){return root.querySelector('#'+id)};var state={category:'all',contact:null,notice:null};var listView=$('mwListView'),chatView=$('mwChatView'),offlineView=$('mwOfflineView'),categorySelect=$('mwCategorySelect'),contactList=$('mwContactList'),messageInput=$('mwMessage'),offlineForm=$('mwOfflineForm');if(!listView||!chatView||!offlineView||!categorySelect||!contactList||!messageInput){root.removeAttribute('data-mw-ready');return}function mwText(key,data){var value=MW_TEXT;key.split('.').forEach(function(part){value=value&&value[part]});if(typeof value!=='string')return '';if(data)Object.keys(data).forEach(function(name){value=value.replace(new RegExp('\\{'+name+'\\}','g'),String(data[name]))});return value}function applyMWText(){function setText(selector,value){var el=root.querySelector(selector);if(el&&value!=null)el.textContent=value}function setAttr(selector,attr,value){var el=root.querySelector(selector);if(el&&value!=null)el.setAttribute(attr,value)}setAttr('#mwFloat','aria-label',MW_TEXT.float.aria);setText('.mw-float-label strong',MW_TEXT.float.first);setText('.mw-float-label b',MW_TEXT.float.second);setText('#mwStoreName',CONFIG.storeName);setText('.mw-header-brand > div > span > span',MW_TEXT.header.subtitle);setAttr('#mwTheme','aria-label',MW_TEXT.header.theme);setAttr('#mwTheme','title',MW_TEXT.header.theme);setAttr('#mwClose','aria-label',MW_TEXT.header.close);setText('.mw-eyebrow',MW_TEXT.intro.eyebrow);setText('.mw-intro-text h3',MW_TEXT.intro.title);setText('.mw-intro-text p',MW_TEXT.intro.description);setText('label[for="mwCategorySelect"]',MW_TEXT.category.label);setText('.mw-contact-heading strong',MW_TEXT.contact.title);setText('#mwNoContact span',MW_TEXT.contact.empty);setText('.mw-footer-note span',MW_TEXT.footer.note);setText('.mw-date-label',MW_TEXT.chat.date);setText('.mw-message-admin small',MW_TEXT.chat.autoMessage);setText('.mw-quick-title',MW_TEXT.chat.quickTitle);setText('.mw-chat-disclaimer',MW_TEXT.chat.disclaimer);setAttr('#mwMessage','placeholder',MW_TEXT.chat.placeholder);setAttr('#mwSend','aria-label',MW_TEXT.chat.send);setText('.mw-offline-back span',MW_TEXT.offline.back);setText('.mw-offline-view h3',MW_TEXT.offline.title);setText('.mw-offline-view > p',MW_TEXT.offline.description);setText('label[for="mwOfflineName"]',MW_TEXT.offline.name);setText('label[for="mwOfflineEmail"]',MW_TEXT.offline.email);setText('label[for="mwOfflineMessage"]',MW_TEXT.offline.message);setAttr('#mwOfflineName','placeholder',MW_TEXT.offline.namePlaceholder);setAttr('#mwOfflineEmail','placeholder',MW_TEXT.offline.emailPlaceholder);setAttr('#mwOfflineMessage','placeholder',MW_TEXT.offline.messagePlaceholder);setText('#mwOfflineForm button[type="submit"]',MW_TEXT.offline.submit)}root.classList.toggle('mw-position-left',CONFIG.position==='left');function escapeHTML(value){return String(value==null?'':value).replace(/[&<>"']/g,function(character){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]})}function initials(name){return String(name||'?').trim().split(/\s+/).slice(0,2).map(function(part){return part.charAt(0)}).join('').toUpperCase()}function avatar(contact){var fallback='<span>'+escapeHTML(initials(contact.name))+'</span>';if(!contact.photo)return fallback;return '<img src="'+escapeHTML(contact.photo)+'" alt="'+escapeHTML(contact.name)+'" loading="lazy" onerror="this.onerror=null;this.parentNode.textContent=\''+escapeHTML(initials(contact.name))+'\'"/>'}function timeToMinutes(value){var parts=String(value||'00:00').split(':');return (parseInt(parts[0],10)||0)*60+(parseInt(parts[1],10)||0)}function getStatus(contact){if(!contact)return 'offline';var manual=contact.status||'auto';if(manual!=='auto')return manual;var now=new Date(),day=now.getDay(),current=now.getHours()*60+now.getMinutes(),start=timeToMinutes(contact.hours&&contact.hours.start||'08:00'),end=timeToMinutes(contact.hours&&contact.hours.end||'17:00'),days=contact.days||[1,2,3,4,5],inHours=start<=end?current>=start&&current<end:current>=start||current<end;return days.indexOf(day)!==-1&&inHours?'online':'offline'}function statusLabel(status){return MW_TEXT.chat[status]||MW_TEXT.chat.offline}function isAvailable(contact){return !!contact&&getStatus(contact)==='online'}function clearNotice(){if(state.notice&&state.notice.parentNode)state.notice.parentNode.removeChild(state.notice);state.notice=null;root.querySelectorAll('.mw-toast,.mw-inline-notice').forEach(function(element){element.remove()})}function notify(message,type){clearNotice();var target=!offlineView.hidden?offlineView:!chatView.hidden?$('mwChatContent')||chatView:listView;if(!target)return;var notice=document.createElement('div');notice.className='mw-inline-notice';notice.classList.add(type==='error'?'mw-notice-error':type==='success'?'mw-notice-success':'mw-notice-default');notice.setAttribute('role','alert');notice.setAttribute('aria-live','assertive');notice.textContent=String(message||'');target.insertBefore(notice,target.firstChild);state.notice=notice;return notice}function getCategoryId(category){return category?String(category.id||category.value||category.key||'').trim():''}function getCategoryLabel(category){return category?String(category.label||category.name||category.title||category.text||category.id||'').trim():''}function normalizeCategory(value){return String(value==null?'':value).trim().toLowerCase()}function getContactCategories(contact){if(!contact)return [];var values=[];if(Array.isArray(contact.services))values=values.concat(contact.services);if(Array.isArray(contact.categories))values=values.concat(contact.categories);if(contact.category)values=values.concat(Array.isArray(contact.category)?contact.category:[contact.category]);return values.map(function(item){return normalizeCategory(typeof item==='object'&&item?getCategoryId(item)||getCategoryLabel(item):item)})}function buildCategories(){categorySelect.innerHTML='';var hasAll=false;CONFIG.categories.forEach(function(category){var id=getCategoryId(category),label=getCategoryLabel(category);if(!id)return;if(normalizeCategory(id)==='all')hasAll=true;var option=document.createElement('option');option.value=id;option.textContent=label||id;categorySelect.appendChild(option)});if(!hasAll){var allOption=document.createElement('option');allOption.value='all';allOption.textContent=MW_TEXT.category.all||'Semua';categorySelect.insertBefore(allOption,categorySelect.firstChild)}var exists=Array.prototype.some.call(categorySelect.options,function(option){return option.value===state.category});if(!exists)state.category='all';categorySelect.value=state.category}function filteredContacts(){var selected=normalizeCategory(state.category);if(!selected||selected==='all')return CONFIG.contacts.slice();return CONFIG.contacts.filter(function(contact){return getContactCategories(contact).indexOf(selected)!==-1})}function renderContacts(){var contacts=filteredContacts();contactList.innerHTML='';if($('mwContactCount'))$('mwContactCount').textContent=contacts.length+' '+MW_TEXT.contact.count;if($('mwNoContact'))$('mwNoContact').hidden=contacts.length!==0;contacts.forEach(function(contact){var status=getStatus(contact),card=document.createElement('button');card.type='button';card.className='mw-contact-card';card.innerHTML='<div class="mw-avatar">'+avatar(contact)+'</div><div class="mw-contact-info"><strong>'+escapeHTML(contact.name)+'</strong><small>'+escapeHTML(contact.role)+'</small><span class="mw-contact-status '+escapeHTML(status)+'"><i></i>'+escapeHTML(statusLabel(status))+'</span></div><span class="mw-contact-arrow"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></span>';card.addEventListener('click',function(){selectContact(contact)});contactList.appendChild(card)})}function syncChatHeader(contact){if(!contact)return;var status=getStatus(contact),avatarBox=$('mwChatAvatar'),nameBox=$('mwChatName'),roleBox=$('mwChatRole'),statusBox=$('mwChatStatus');if(avatarBox)avatarBox.innerHTML=avatar(contact);if(nameBox)nameBox.textContent=contact.name||MW_TEXT.contact.defaultName;if(roleBox)roleBox.textContent=contact.role||MW_TEXT.contact.defaultRole;if(statusBox){statusBox.className='mw-chat-status '+status;statusBox.innerHTML='<i></i><b>'+escapeHTML(statusLabel(status))+'</b>'}if($('mwGreeting'))$('mwGreeting').textContent=contact.greeting||CONFIG.greeting}function showView(view){listView.hidden=view!=='list';chatView.hidden=view!=='chat';offlineView.hidden=view!=='offline';if(view!=='offline'&&view!=='chat')clearNotice()}function selectContact(contact){if(!contact)return;clearNotice();state.contact=contact;syncChatHeader(contact);var quick=$('mwQuickReplies');if(quick){quick.innerHTML='';CONFIG.quickReplies.forEach(function(reply){var button=document.createElement('button');button.type='button';button.textContent=reply;button.addEventListener('click',function(){messageInput.value=reply;messageInput.focus();resizeMessage()});quick.appendChild(button)})}if(isAvailable(contact)){showView('chat');if($('mwChatContent'))$('mwChatContent').scrollTop=0;messageInput.value='';resizeMessage()}else{showView('offline');notify(mwText('notice.offlineSelected',{name:contact.name}),'error')}}function openWhatsApp(contact,message){if(!contact){notify(MW_TEXT.notice.selectTeam,'error');return false}if(!isAvailable(contact)){showView('offline');notify(mwText('notice.offline',{name:contact.name}),'error');return false}var phone=String(contact.phone||'').replace(/\D/g,'');if(!phone||phone.length<8){notify(MW_TEXT.notice.invalidPhone,'error');return false}message=String(message||'').trim();if(!message){notify(MW_TEXT.notice.emptyMessage,'error');return false}var url='https://wa.me/'+phone+'?text='+encodeURIComponent(message),link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.className='mw-wa-link';document.body.appendChild(link);link.click();link.remove();return true}function sendMessage(){var message=messageInput.value.trim();if(!message){notify(MW_TEXT.notice.emptyMessage,'error');messageInput.focus();return}var contact=state.contact;if(!contact){var contacts=filteredContacts();contact=contacts[0]||CONFIG.contacts[0]||null}if(!contact){notify(MW_TEXT.notice.noContact,'error');return}if(!isAvailable(contact)){state.contact=contact;syncChatHeader(contact);showView('offline');notify(mwText('notice.offline',{name:contact.name}),'error');return}openWhatsApp(contact,message)}function autoRoute(){if(!CONFIG.autoRouting)return;var contacts=filteredContacts(),available=contacts.filter(isAvailable);if(available.length){selectContact(available[0])}else{state.contact=contacts[0]||null;if(state.contact)syncChatHeader(state.contact);showView('offline');notify(MW_TEXT.notice.noTeam,'error')}}function resizeMessage(){}function openPanel(){var panel=$('mwPanel');if(!panel)return;panel.classList.add('mw-open');panel.setAttribute('aria-hidden','false');clearNotice();showView('list');renderContacts()}function closePanel(){var panel=$('mwPanel');if(!panel)return;panel.classList.remove('mw-open');panel.setAttribute('aria-hidden','true')}function togglePanel(){var panel=$('mwPanel');if(!panel)return;if(panel.classList.contains('mw-open'))closePanel();else openPanel()}document.addEventListener('click',function(event){var target=event.target;if(!target||!target.closest)return;var clickedFloat=target.closest('#mwFloat'),closeButton=target.closest('#mwClose');if(clickedFloat&&showFloat&&root.contains(clickedFloat)){event.preventDefault();event.stopPropagation();togglePanel();return}if(closeButton&&root.contains(closeButton)){event.preventDefault();event.stopPropagation();closePanel()}},true);if($('mwBack'))$('mwBack').addEventListener('click',function(){clearNotice();showView('list');renderContacts()});if($('mwOfflineBack'))$('mwOfflineBack').addEventListener('click',function(){clearNotice();showView('list');renderContacts()});if($('mwSend'))$('mwSend').addEventListener('click',function(event){event.preventDefault();sendMessage()});messageInput.addEventListener('input',resizeMessage);messageInput.addEventListener('keydown',function(event){if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMessage()}});categorySelect.addEventListener('change',function(){state.category=this.value||'all';clearNotice();renderContacts()});root.addEventListener('click',function(event){var target=event.target;if(!target||!target.closest)return;var button=target.closest('[data-mw-category]');if(!button||!root.contains(button))return;var category=button.getAttribute('data-mw-category');if(!category)return;state.category=category;categorySelect.value=category;root.querySelectorAll('[data-mw-category]').forEach(function(item){var active=item.getAttribute('data-mw-category')===category;item.classList.toggle('active',active);item.setAttribute('aria-pressed',active?'true':'false')});clearNotice();renderContacts()});if($('mwTheme'))$('mwTheme').addEventListener('click',function(){root.classList.toggle('mw-dark')});function handleOfflineSubmit(event){event.preventDefault();event.stopPropagation();var contact=state.contact;if(!contact){var matching=filteredContacts();contact=matching[0]||CONFIG.contacts[0]||null}if(!contact){showView('offline');notify(MW_TEXT.notice.noContact,'error');return false}state.contact=contact;var name=$('mwOfflineName')?$('mwOfflineName').value.trim():'',email=$('mwOfflineEmail')?$('mwOfflineEmail').value.trim():'',message=$('mwOfflineMessage')?$('mwOfflineMessage').value.trim():'';if(!name){notify(MW_TEXT.notice.emptyName,'error');if($('mwOfflineName'))$('mwOfflineName').focus();return false}if(!message){notify(MW_TEXT.notice.emptyOfflineMessage,'error');if($('mwOfflineMessage'))$('mwOfflineMessage').focus();return false}if(!isAvailable(contact)){showView('offline');notify(mwText('notice.offlineSubmit',{name:contact.name}),'error');return false}var text='Halo, saya ingin menghubungi layanan '+contact.name+'.'+'\nNama: '+name+(email?'\nEmail: '+email:'')+'\nPesan: '+message;var sent=openWhatsApp(contact,text);if(sent&&$('mwOfflineMessage'))$('mwOfflineMessage').value='';return false}if(offlineForm)offlineForm.addEventListener('submit',handleOfflineSubmit,true);root.addEventListener('submit',function(event){var form=event.target;if(form&&form.id==='mwOfflineForm'&&form!==offlineForm)handleOfflineSubmit(event)},true);function initTheme(){root.classList.remove('mw-dark');if(CONFIG.darkMode==='dark')root.classList.add('mw-dark')}function refreshContactStatuses(){renderContacts();if(state.contact)syncChatHeader(state.contact)}applyMWText();buildCategories();renderContacts();initTheme();window.setInterval(refreshContactStatuses,60000)})();
